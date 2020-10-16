@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/smhanov/dawg"
+	"github.com/ugol/dawg"
 	"os"
 )
 

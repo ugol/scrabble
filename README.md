@@ -1,6 +1,6 @@
-# scrabble
+# Words
 Words game helper, especially useful for Scrabble and similar games 
 
-Example usage
+# Example usage
 
-Improvements
+# Improvements

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/smhanov/dawg"
+	"github.com/ugol/dawg"
 	"os"
 	"strconv"
 	"strings"

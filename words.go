@@ -43,7 +43,12 @@ func perm(a []rune, f func([]rune), i int) {
 }
 
 func usage() {
-	fmt.Println("Usage: words string 4")
+	fmt.Printf(	"Usage:\n" +
+						"   words string [min] [max]\n" +
+						"   words animals\n" +
+						"   words animals 4\n" +
+						"   words animals 4 5\n" +
+						"   words AniMals 5\n");
 	return
 }
 
@@ -62,14 +67,22 @@ func main() {
 
 	word := os.Args[1]
 	minLength := 3
+	maxLength := len(word)
 
-	if len(os.Args) == 3 {
+	if len(os.Args) >= 3 {
 		minLength, err = strconv.Atoi(os.Args[2])
 		if err != nil {
-			fmt.Println("Usage: words string 4")
+			usage()
 			return
 		}
+	}
 
+	if len(os.Args) == 4 {
+		maxLength, err = strconv.Atoi(os.Args[3])
+		if err != nil {
+			usage()
+			return
+		}
 	}
 
 	/*
@@ -83,7 +96,7 @@ func main() {
 
 	//*
 	Perm([]rune(word), func(permutation []rune) {
-		results := finder.FindAllPrefixesOf(strings.ToLower(string(permutation)), minLength)
+		results := finder.FindAllPrefixesOf(strings.ToLower(string(permutation)), minLength, maxLength)
 		for _, result := range results {
 			fmt.Printf("%v\n", result.Word)
 		}
